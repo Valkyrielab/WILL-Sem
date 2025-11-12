@@ -174,3 +174,46 @@ JOIN EmploymentContract t2
 ON t1.identitynumber = t2.identitynumber
 AND t1.EmploymentContractID > t2.EmploymentContractID;
 
+
+
+UPDATE EmploymentContract
+SET ContractStatus = 'Inactive',
+    Remuneration = 70000,
+    lastUpdatedBy = 'Admin',
+    lastUpdatedDat = '2025-11-12'
+WHERE EmploymentContractID = 2;
+
+
+UPDATE EmploymentContract
+SET ContractStatus = 'Inactive',
+    lastUpdatedBy = 'Admin',
+    lastUpdatedDat = '2025-11-12'
+WHERE Branch = 'Branch A';
+
+
+SELECT * FROM EmploymentContract WHERE Branch = 'Branch A';
+
+
+SELECT Firstname, Surname, JobTitle
+FROM EmploymentContract
+WHERE ContractStatus = 'Active';
+
+
+INSERT INTO table_name (column1, column2, ...)
+VALUES (value1, value2, ...);
+
+
+INSERT INTO EmploymentContract (Firstname, Surname, JobTitle)
+VALUES ('John', 'Smith', 'Software Engineer');
+
+
+
+UPDATE EmploymentContract
+SET ContractStatus = 'Inactive'
+WHERE EmploymentContractID = 3;
+
+
+
+DELETE FROM EmploymentContract
+WHERE EmploymentContractID = 5;
+
