@@ -150,4 +150,27 @@ VALUES
     (4, '2025-11-12', 104, 'EduWorld', 3, 'Internship', 'Taylor', 'Emily', 'ID', '9903037009089', NULL, 'ID', 'Intern', 'Education', 'Branch C', 15000, '2025-12-01', '2026-06-01', 'Active', 'Training Program', 'Admin', '2025-11-12', 'Admin', '2025-11-12'),
     (5, '2025-11-12', 105, 'FinServe', 2, 'Contract', 'Wilson', 'Robert', 'Passport', NULL, 'P7654321', 'Passport', 'Financial Advisor', 'Finance', 'Head Office', 85000, '2025-12-10', '2027-12-10', 'Active', 'Project Gamma', 'Admin', '2025-11-12', 'Admin', '2025-11-12');
 
+SELECT * FROM EmploymentContract WHERE ContractStatus = 'Inactive';
+
+SELECT identitynumber, COUNT(*) AS duplicate_count
+FROM EmploymentContract
+GROUP BY identitynumber
+HAVING COUNT(*) > 1;
+
+
+WITH duplicates AS (
+    SELECT EmploymentContractID,
+           ROW_NUMBER() OVER (PARTITION BY identitynumber ORDER BY EmploymentContractID) AS rn
+    FROM EmploymentContract
+)
+DELETE FROM EmploymentContract
+WHERE EmploymentContractID IN (
+    SELECT EmploymentContractID FROM duplicates WHERE rn > 1
+);
+
+
+DELETE t1 FROM EmploymentContract t1
+JOIN EmploymentContract t2
+ON t1.identitynumber = t2.identitynumber
+AND t1.EmploymentContractID > t2.EmploymentContractID;
 
