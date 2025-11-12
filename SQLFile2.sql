@@ -138,3 +138,16 @@ CREATE TABLE DisciplinaryStatus (
     lastUpdatedDate DATETIME,
     FOREIGN KEY (RowID) REFERENCES EmploymentContract(EmploymentContractID)
 );
+
+INSERT INTO EmploymentContract (EmploymentContractID, ContractCreateDate, CompanyNameID,CompanyName,
+    ContractTypeID, ContractType,  Surname, Firstname, IdentificationType,identitynumber, PassportNumber, IDValue, JobTitle, 
+    Department, Branch, Remuneration, ContractStartDate, ContractEndDate, ContractStatus, ProjectDetail, CreatedBy,  createdDate, lastUpdatedBy, 
+    lastUpdatedDate)
+VALUES
+    (1, '2025-11-12', 101, 'TechCorp', 1, 'Permanent', 'Smith', 'John', 'ID', '8001015009087', NULL, 'ID', 'Software Engineer', 'IT', 'Head Office', 75000, '2025-12-01', '2028-12-01', 'Active', 'Project Alpha', 'Admin', '2025-11-12', 'Admin', '2025-11-12'),
+    (2, '2025-11-12', 102, 'BizSolutions', 2, 'Contract', 'Doe', 'Jane', 'Passport', NULL, 'P1234567', 'Passport', 'Business Analyst', 'Consulting', 'Branch A', 65000, '2025-12-15', '2026-12-15', 'Active', 'Project Beta', 'Admin', '2025-11-12', 'Admin', '2025-11-12'),
+    (3, '2025-11-12', 103, 'HealthPlus', 1, 'Permanent', 'Brown', 'Michael', 'ID', '7902026009088', NULL, 'ID', 'HR Manager', 'HR', 'Branch B', 55000, '2026-01-01', '2029-01-01', 'Active', 'HR System Upgrade', 'Admin', '2025-11-12', 'Admin', '2025-11-12'),
+    (4, '2025-11-12', 104, 'EduWorld', 3, 'Internship', 'Taylor', 'Emily', 'ID', '9903037009089', NULL, 'ID', 'Intern', 'Education', 'Branch C', 15000, '2025-12-01', '2026-06-01', 'Active', 'Training Program', 'Admin', '2025-11-12', 'Admin', '2025-11-12'),
+    (5, '2025-11-12', 105, 'FinServe', 2, 'Contract', 'Wilson', 'Robert', 'Passport', NULL, 'P7654321', 'Passport', 'Financial Advisor', 'Finance', 'Head Office', 85000, '2025-12-10', '2027-12-10', 'Active', 'Project Gamma', 'Admin', '2025-11-12', 'Admin', '2025-11-12');
+
+
